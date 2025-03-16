@@ -94,7 +94,7 @@ export function AuthProvider({ children }) {
   );
 }
  ```
-```
+
 
 Let's create the Login component:
 
@@ -158,7 +158,7 @@ function Login({ toggleForm }) {
 
 export default Login;
  ```
-```
+
 
 Now, let's create the SignupForm component:
 
@@ -292,7 +292,7 @@ function SignupForm({ toggleForm }) {
 
 export default SignupForm;
  ```
-```
+
 
 Let's create the StudentList component:
 
@@ -342,7 +342,7 @@ function StudentList() {
 
 export default StudentList;
  ```
-```
+
 
 Now, let's create the Dashboard component:
 
@@ -373,7 +373,7 @@ function Dashboard() {
 
 export default Dashboard;
  ```
-```
+
 
 Finally, let's update the App.js file:
 
@@ -415,7 +415,7 @@ function App() {
 
 export default App;
  ```
-```
+
 
 Let's add some styling with App.css:
 
@@ -566,7 +566,7 @@ table tr:hover {
   background-color: #f9f9f9;
 }
  ```
-```
+
 
 To run the application:
 

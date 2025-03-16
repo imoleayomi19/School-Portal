@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import Login from './components/Login';
+import SignupForm from './components/SignupForm';
+import Dashboard from './components/Dashboard';
 import './App.css';
+
+function AuthenticatedApp() {
+  const { currentUser } = useAuth();
+  
+  return currentUser ? <Dashboard /> : <UnauthenticatedApp />;
+}
+
+function UnauthenticatedApp() {
+  const [isLogin, setIsLogin] = useState(true);
+  
+  const toggleForm = () => {
+    setIsLogin(!isLogin);
+  };
+  
+  return isLogin ? 
+    <Login toggleForm={toggleForm} /> : 
+    <SignupForm toggleForm={toggleForm} />;
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <AuthenticatedApp />
+      </AuthProvider>
     </div>
   );
 }

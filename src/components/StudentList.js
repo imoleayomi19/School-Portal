@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function StudentList() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    // Load students from localStorage
-    const studentsData = JSON.parse(localStorage.getItem('studentsData')) || { students: [] };
+    const studentsData = JSON.parse(localStorage.getItem("studentsData")) || {
+      students: [],
+    };
     setStudents(studentsData.students);
   }, []);
 
   return (
     <div className="student-list">
       <h2>Registered Students</h2>
-      
+
       {students.length === 0 ? (
         <p>No students registered yet.</p>
       ) : (
@@ -26,7 +27,7 @@ function StudentList() {
             </tr>
           </thead>
           <tbody>
-            {students.map(student => (
+            {students.map((student) => (
               <tr key={student.id}>
                 <td>{student.name}</td>
                 <td>{student.email}</td>
